@@ -35,7 +35,9 @@ When you run this code, you'll get a neatly formatted multiplication table like 
 
 Feel free to adjust `n` if you want a larger or smaller multiplication table!
 
-### 2.]
+### 2.] Question: battery = {8.40:49,8.45:50,8.50:51,8.55:52,9.00:60,9.05:41,9.10:42,9.15:46}
+#task to verify battery status when its pluged out/over load (between 9.00 to 9.05)
+
 To verify the battery status when it is plugged out or under overload, particularly in the range between 9.00 and 9.05, you can use the information provided in the `battery` dictionary. This dictionary maps voltage levels to their corresponding battery statuses. 
 
 Here’s a simple approach to check the battery status for the voltage levels between 9.00 and 9.05:
