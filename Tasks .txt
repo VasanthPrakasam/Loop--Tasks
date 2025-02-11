@@ -1,24 +1,12 @@
 ### 1.] Q.create a multiplication table use only range in for loop concept?
 
-You can create a multiplication table using a `for` loop in Python. Below is an example of how to do this for a multiplication table from 1 to 10:
-
-```python
 # Define the range for the multiplication table
 n = 10
-
 # Create a multiplication table from 1 to n
 for i in range(1, n + 1):  # Rows
     for j in range(1, n + 1):  # Columns
         print(f"{i * j:4}", end=' ')  # Print the product, formatted for alignment
     print()  # Move to the next line after each row
-```
-
-#Explanation:
-- The outer loop (`for i in range(1, n + 1)`) iterates through the rows of the table (1 to 10).
-- The inner loop (`for j in range(1, n + 1)`) iterates through the columns (1 to 10).
-- `print(f"{i * j:4}", end=' ')` calculates the product of the current row and column indices. The `:4` formats the output to occupy at least 4 spaces, aligning the table properly.
-- `print()` without arguments moves the cursor to the next line after finishing a row.
-
 When you run this code, you'll get a neatly formatted multiplication table like this:
 
 ```
@@ -32,44 +20,31 @@ When you run this code, you'll get a neatly formatted multiplication table like 
    8   16   24   32   40   48   56   64   72   80 
    9   18   27   36   45   54   63   72   81   90 
   10   20   30   40   50   60   70   80   90  100 
-```
+
+Explanation:
+The outer loop iterates through the rows represented by i, which ranges from 1 to n.
+The inner loop iterates through the columns represented by j, which also ranges from 1 to n.
+The product of i and j is calculated and printed, with some formatting for better alignment.
+After completing each inner loop (row), a print() statement is called to move to the next line.
 
 Feel free to adjust `n` if you want a larger or smaller multiplication table!
 
 ### 2.] Question: battery = {8.40:49,8.45:50,8.50:51,8.55:52,9.00:60,9.05:41,9.10:42,9.15:46}
 #task to verify battery status when its pluged out/over load (between 9.00 to 9.05)
 
-To verify the battery status when it is plugged out or under overload, particularly in the range between 9.00 and 9.05, you can use the information provided in the `battery` dictionary. This dictionary maps voltage levels to their corresponding battery statuses. 
-
-Here’s a simple approach to check the battery status for the voltage levels between 9.00 and 9.05:
-
-1. Determine the voltage levels you're interested in.
-2. Check if those voltage levels exist in the `battery` dictionary.
-3. If a voltage level exists, retrieve and print its corresponding status. If not, you can mention that the status is not available.
-
-Here’s a piece of Python code to illustrate this:
-
-```python
 battery = {8.40: 49, 8.45: 50, 8.50: 51, 8.55: 52, 9.00: 60, 9.05: 41, 9.10: 42, 9.15: 46}
-
 # Checking the battery status between 9.00 and 9.05
 check_voltages = [9.00, 9.05]
-
 for voltage in check_voltages:
     if voltage in battery:
         status = battery[voltage]
         print(f"Battery status at {voltage}V: {status}")
     else:
         print(f"Battery status at {voltage}V: Not available")
-```
 
-### Expected Output:
-```
+## Expected Output:
 Battery status at 9.0V: 60
 Battery status at 9.05V: 41
-```
-
-This code effectively retrieves and prints the battery status at the specified voltage levels. You can further expand the logic based on specific conditions (e.g., defining what battery status represents "plugged out" or "overload") to provide more contextual information or warnings based on the returned status values.
 
 ### 
 3.]
@@ -172,10 +147,13 @@ max_salary_per_city = get_max_salary_per_city(p["emp"])
 for city, emp in max_salary_per_city.items():
     print(f"Employee with max salary in {city}: {emp['name']}")
 ```
-
-### Explanation:
-1. **Functions**: Separate functions are defined for each task, avoiding the use of `lambda`. Each function iterates over the list of employees to determine the desired employee based on specified criteria (max/min salary or age).
-2. **Usage**: These functions are then called for each task, providing the same output as before but without using `lambda`.
-
-This version is more verbose but may be preferred if you're looking for clarity or a style that avoids anonymous functions.
+## Expected output
+Employee with max salary: inbakumar
+Employee with min salary: aravind
+Employee with max age: kavitha
+Employee with min age: vasanth
+Employee with min salary in Madurai: bharath
+Employee with max salary in chennai: arun
+Employee with max salary in madurai: kavitha
+Employee with max salary in nellai: inbakumar
 
