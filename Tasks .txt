@@ -157,3 +157,66 @@ Employee with max salary in chennai: arun
 Employee with max salary in madurai: kavitha
 Employee with max salary in nellai: inbakumar
 
+                                                  OR
+
+# Define the dictionary
+p = {
+    "emp": [
+        {"id": 23, "name": "vasanth", "age": 22, "place": "chennai", "salary": 45000},
+        {"id": 24, "name": "arun", "age": 26, "place": "chennai", "salary": 49000},
+        {"id": 25, "name": "kavitha", "age": 56, "place": "madurai", "salary": 86000},
+        {"id": 26, "name": "bharath", "age": 46, "place": "madurai", "salary": 21000},
+        {"id": 27, "name": "aravind", "age": 32, "place": "nellai", "salary": 12000},
+        {"id": 28, "name": "hana", "age": 30, "place": "madurai", "salary": 36000},
+        {"id": 29, "name": "inbakumar", "age": 42, "place": "nellai", "salary": 100000},
+    ]
+}
+
+def task1():
+    """Display emp name who has max salary"""
+    max_salary = max(emp["salary"] for emp in p["emp"])
+    max_salary_emp = next(emp for emp in p["emp"] if emp["salary"] == max_salary)
+    print(f"Employee with max salary: {max_salary_emp['name']}")
+
+def task2():
+    """Display emp name who has min salary"""
+    min_salary = min(emp["salary"] for emp in p["emp"])
+    min_salary_emp = next(emp for emp in p["emp"] if emp["salary"] == min_salary)
+    print(f"Employee with min salary: {min_salary_emp['name']}")
+
+def task3():
+    """Display emp name who has max age"""
+    max_age = max(emp["age"] for emp in p["emp"])
+    max_age_emp = next(emp for emp in p["emp"] if emp["age"] == max_age)
+    print(f"Employee with max age: {max_age_emp['name']}")
+
+def task4():
+    """Display emp name who has min age"""
+    min_age = min(emp["age"] for emp in p["emp"])
+    min_age_emp = next(emp for emp in p["emp"] if emp["age"] == min_age)
+    print(f"Employee with min age: {min_age_emp['name']}")
+
+def task5():
+    """Display emp name who has minimum salary in madurai"""
+    madurai_salaries = [emp["salary"] for emp in p["emp"] if emp["place"] == "madurai"]
+    min_salary_madurai = min(madurai_salaries)
+    min_salary_madurai_emp = next(emp for emp in p["emp"] if emp["place"] == "madurai" and emp["salary"] == min_salary_madurai)
+    print(f"Employee with min salary in madurai: {min_salary_madurai_emp['name']}")
+
+def task6():
+    """Display emp name who has maximum salary in each city"""
+    city_max_salaries = {}
+    for emp in p["emp"]:
+        city = emp["place"]
+        salary = emp["salary"]
+        if city not in city_max_salaries or salary > city_max_salaries[city]:
+            city_max_salaries[city] = salary
+    for city, max_salary in city_max_salaries.items():
+        max_salary_emp = next(emp for emp in p["emp"] if emp["place"] == city and emp["salary"] == max_salary)
+        print(f"Maximum salary in {city}: {max_salary} - {max_salary_emp['name']}")
+
+# Run the tasks
+tasks = [task1, task2, task3, task4, task5, task6]
+for i, task in enumerate(tasks):
+    print(f"Task {i+1}: {task.__name__}")
+    task()
