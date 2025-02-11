@@ -1,0 +1,178 @@
+### 1.] 
+You can create a multiplication table using a `for` loop in Python. Below is an example of how to do this for a multiplication table from 1 to 10:
+
+```python
+# Define the range for the multiplication table
+n = 10
+
+# Create a multiplication table from 1 to n
+for i in range(1, n + 1):  # Rows
+    for j in range(1, n + 1):  # Columns
+        print(f"{i * j:4}", end=' ')  # Print the product, formatted for alignment
+    print()  # Move to the next line after each row
+```
+
+#Explanation:
+- The outer loop (`for i in range(1, n + 1)`) iterates through the rows of the table (1 to 10).
+- The inner loop (`for j in range(1, n + 1)`) iterates through the columns (1 to 10).
+- `print(f"{i * j:4}", end=' ')` calculates the product of the current row and column indices. The `:4` formats the output to occupy at least 4 spaces, aligning the table properly.
+- `print()` without arguments moves the cursor to the next line after finishing a row.
+
+When you run this code, you'll get a neatly formatted multiplication table like this:
+
+```
+   1    2    3    4    5    6    7    8    9   10 
+   2    4    6    8   10   12   14   16   18   20 
+   3    6    9   12   15   18   21   24   27   30 
+   4    8   12   16   20   24   28   32   36   40 
+   5   10   15   20   25   30   35   40   45   50 
+   6   12   18   24   30   36   42   48   54   60 
+   7   14   21   28   35   42   49   56   63   70 
+   8   16   24   32   40   48   56   64   72   80 
+   9   18   27   36   45   54   63   72   81   90 
+  10   20   30   40   50   60   70   80   90  100 
+```
+
+Feel free to adjust `n` if you want a larger or smaller multiplication table!
+
+### 2.]
+To verify the battery status when it is plugged out or under overload, particularly in the range between 9.00 and 9.05, you can use the information provided in the `battery` dictionary. This dictionary maps voltage levels to their corresponding battery statuses. 
+
+Here’s a simple approach to check the battery status for the voltage levels between 9.00 and 9.05:
+
+1. Determine the voltage levels you're interested in.
+2. Check if those voltage levels exist in the `battery` dictionary.
+3. If a voltage level exists, retrieve and print its corresponding status. If not, you can mention that the status is not available.
+
+Here’s a piece of Python code to illustrate this:
+
+```python
+battery = {8.40: 49, 8.45: 50, 8.50: 51, 8.55: 52, 9.00: 60, 9.05: 41, 9.10: 42, 9.15: 46}
+
+# Checking the battery status between 9.00 and 9.05
+check_voltages = [9.00, 9.05]
+
+for voltage in check_voltages:
+    if voltage in battery:
+        status = battery[voltage]
+        print(f"Battery status at {voltage}V: {status}")
+    else:
+        print(f"Battery status at {voltage}V: Not available")
+```
+
+### Expected Output:
+```
+Battery status at 9.0V: 60
+Battery status at 9.05V: 41
+```
+
+This code effectively retrieves and prints the battery status at the specified voltage levels. You can further expand the logic based on specific conditions (e.g., defining what battery status represents "plugged out" or "overload") to provide more contextual information or warnings based on the returned status values.
+
+### 
+3.]
+
+p = {"emp":[{"id":23,"name":"vasanth","age":22,"place":"chennai","salary":45000},
+       {"id":24,"name":"arun","age":26,"place":"chennai","salary":49000},
+       {"id":25,"name":"kavitha","age":56,"place":"madurai","salary":86000},
+       {"id":26,"name":"bharath","age":46,"place":"madurai","salary":21000},
+       {"id":27,"name":"aravind","age":32,"place":"nellai","salary":12000},
+       {"id":28,"name":"hana","age":30,"place":"madurai","salary":36000},
+       {"id":29,"name":"inbakumar","age":42,"place":"nellai","salary":100000}]}
+#task 1  : display emp name who has max salary
+#task 2 : display emp name who has min salary
+#task 3 : display emp name who has max age
+#task 4 : display emp name who has min age
+#task 5 : display emp name who has minimum salary in madurai
+#task 6 : display emp name who has maximum salary in each city
+
+
+p = {
+    "emp": [
+        {"id": 23, "name": "vasanth", "age": 22, "place": "chennai", "salary": 45000},
+        {"id": 24, "name": "arun", "age": 26, "place": "chennai", "salary": 49000},
+        {"id": 25, "name": "kavitha", "age": 56, "place": "madurai", "salary": 86000},
+        {"id": 26, "name": "bharath", "age": 46, "place": "madurai", "salary": 21000},
+        {"id": 27, "name": "aravind", "age": 32, "place": "nellai", "salary": 12000},
+        {"id": 28, "name": "hana", "age": 30, "place": "madurai", "salary": 36000},
+        {"id": 29, "name": "inbakumar", "age": 42, "place": "nellai", "salary": 100000}
+    ]
+}
+
+# Function to get max salary employee
+def get_max_salary_employee(employees):
+    max_salary_emp = employees[0]
+    for emp in employees:
+        if emp["salary"] > max_salary_emp["salary"]:
+            max_salary_emp = emp
+    return max_salary_emp
+
+# Function to get min salary employee
+def get_min_salary_employee(employees):
+    min_salary_emp = employees[0]
+    for emp in employees:
+        if emp["salary"] < min_salary_emp["salary"]:
+            min_salary_emp = emp
+    return min_salary_emp
+
+# Function to get max age employee
+def get_max_age_employee(employees):
+    max_age_emp = employees[0]
+    for emp in employees:
+        if emp["age"] > max_age_emp["age"]:
+            max_age_emp = emp
+    return max_age_emp
+
+# Function to get min age employee
+def get_min_age_employee(employees):
+    min_age_emp = employees[0]
+    for emp in employees:
+        if emp["age"] < min_age_emp["age"]:
+            min_age_emp = emp
+    return min_age_emp
+
+# Function to get min salary employee in Madurai
+def get_min_salary_madurai_employee(employees):
+    madurai_emps = [emp for emp in employees if emp["place"] == "madurai"]
+    return get_min_salary_employee(madurai_emps)
+
+# Function to get max salary employee in each city
+def get_max_salary_per_city(employees):
+    max_salary_per_city = {}
+    for emp in employees:
+        city = emp["place"]
+        if city not in max_salary_per_city or emp["salary"] > max_salary_per_city[city]["salary"]:
+            max_salary_per_city[city] = emp
+    return max_salary_per_city
+
+# Task 1
+max_salary_emp = get_max_salary_employee(p["emp"])
+print("Employee with max salary:", max_salary_emp["name"])
+
+# Task 2
+min_salary_emp = get_min_salary_employee(p["emp"])
+print("Employee with min salary:", min_salary_emp["name"])
+
+# Task 3
+max_age_emp = get_max_age_employee(p["emp"])
+print("Employee with max age:", max_age_emp["name"])
+
+# Task 4
+min_age_emp = get_min_age_employee(p["emp"])
+print("Employee with min age:", min_age_emp["name"])
+
+# Task 5
+min_salary_madurai_emp = get_min_salary_madurai_employee(p["emp"])
+print("Employee with min salary in Madurai:", min_salary_madurai_emp["name"])
+
+# Task 6
+max_salary_per_city = get_max_salary_per_city(p["emp"])
+for city, emp in max_salary_per_city.items():
+    print(f"Employee with max salary in {city}: {emp['name']}")
+```
+
+### Explanation:
+1. **Functions**: Separate functions are defined for each task, avoiding the use of `lambda`. Each function iterates over the list of employees to determine the desired employee based on specified criteria (max/min salary or age).
+2. **Usage**: These functions are then called for each task, providing the same output as before but without using `lambda`.
+
+This version is more verbose but may be preferred if you're looking for clarity or a style that avoids anonymous functions.
+
