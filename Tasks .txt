@@ -1,4 +1,5 @@
-### 1.] 
+### 1.] Q.create a multiplication table use only range in for loop concept?
+
 You can create a multiplication table using a `for` loop in Python. Below is an example of how to do this for a multiplication table from 1 to 10:
 
 ```python
